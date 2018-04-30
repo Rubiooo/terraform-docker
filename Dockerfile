@@ -1,4 +1,7 @@
-FROM  buildpack-deps:latest
+FROM  buildpack-deps:curl
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        unzip
+    && rm -rf /var/lib/apt/lists/*
 
 ENV TERRAFORM_VERSION 0.11.7
 RUN curl -sSL -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
