@@ -1,4 +1,7 @@
-FROM  buildpack-deps:curl
+FROM python
+
+RUN pip install ansible apache-libcloud
+
 RUN apt-get update && apt-get install -y --no-install-recommends unzip \
     && rm -rf /var/lib/apt/lists/*
 
